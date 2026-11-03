@@ -1,0 +1,16 @@
+/* Start: poster is het enige zichtbare element. */
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #070504; }
+.stage { min-height: 100svh; display: grid; place-items: center; }
+.poster { position: relative; width: min(100vw, calc(100svh * 1055 / 1491)); aspect-ratio: 1055 / 1491; overflow: hidden; }
+.poster img, .poster svg { display: block; width: 100%; height: 100%; }
+.poster svg { position: absolute; inset: 0; touch-action: manipulation; }
+/* Einde: poster is het enige zichtbare element. */
+/* Start: interactie en animatie van de puzzel. */
+.piece { fill: #130d0a; stroke: #b58b63; stroke-width: 2.4; stroke-linejoin: round; cursor: pointer; transition: opacity .6s ease, transform .6s ease, filter .3s ease; transform-box: fill-box; transform-origin: center; }
+.piece:nth-child(3n) { fill: #1c120d; }
+.piece:hover { filter: brightness(1.6); stroke: #e2b37e; }
+.piece:focus-visible { outline: none; stroke: #ffe0a8; stroke-width: 5; }
+.piece.gone { opacity: 0; transform: scale(.87) rotate(6deg); pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .piece { transition: none; } }
+/* Einde: interactie en animatie van de puzzel. */
